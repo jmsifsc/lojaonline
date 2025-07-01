@@ -1,14 +1,14 @@
-<?php
+<?php 
     require("conexao.php");
     $id = $_POST['btnApagar'];
-
-    $resultador = $pdo->prepare("DELETE FROM produto_caracteristica WHERE id_produto= ?");
-    $resultador->execute([$id]);
     
-    $resultador = $pdo->prepare("DELETE FROM estoque WHERE id_produto= ?");
-    $resultador->execute([$id]);
+    $resultado = $pdo->prepare("DELETE FROM produto_caracteristica WHERE id_produto = ?");
+    $resultado->execute([$id]);
 
-    $resultador = $pdo->prepare("DELETE FROM produto WHERE id= ?");
-    $resultador->execute([$id]);
-    header("location: produto.php");
+    $resultado = $pdo->prepare("DELETE FROM estoque WHERE id_produto = ?");
+    $resultado->execute([$id]);
+    
+    $resultado = $pdo->prepare("DELETE FROM produto WHERE id = ?");
+    $resultado->execute([$id]);
+    header("Location: produto.php");
 ?>

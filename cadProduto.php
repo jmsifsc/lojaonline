@@ -4,9 +4,10 @@ require("conexao.php");
 if (isset($_POST['btnSalvar'])) {
     $nome = $_POST['txtNome'];
     $preco = $_POST['txtPreco'];
-    $resultado = $pdo-> prepare("INSERT INTO produto(nome, preco, categoria) VALUES(?,?,?)");
+
+    $resultado = $pdo->prepare("INSERT INTO Produto (nome, preco, categoria) VALUES(?,?,?)");
     $resultado->execute([$nome, $preco, 'Informatica']);
-    header("location: produto.php");
+    header("Location: produto.php");  
 }
 ?>
 
